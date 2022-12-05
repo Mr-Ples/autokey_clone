@@ -1,0 +1,449 @@
+{
+    "restore wallet": {
+        "content": "If you have your 12 word passphrase written down please restore your wallet "
+    },
+    "crypton generation indications": {
+        "content": "we will see what we can do to improve the design to make it more clear, no cap ong. You are a landlord because you own land, so all those NFTs in your plot menu generates mostly toward your daily crypton (according to the different percentages given in the FAQ, which is 90% to you in the case of NFT pets for example and 10% to your plot managers). So far so bussin' fr fr no cap.\n\nIn the first picture you are showing your plot which is on someone elses land cuh ong fr, there the generation is 9 crypton per day (from the land itself, see the metaverse article cos.support.metaverse#metaverse), and whatever comes from the landlord's NFT collection to you (so if the land lord has an NFT pet for example 10% of what the pet generates goes to the plot managers, and you get a cut because you are a plot manager). Which adds up to ~11 Crypton per day. The overview should show the scholarship + the plot = ~511 skrrt say less.\n\nIf this explanation didn't go brrr ong fr feel free to reach out again rent free cuh ong. If the explanation slaps please share your vibe check with a 5-Star review on the Store: https://l.linklyhq.com/l/1SFTp "
+    },
+    "import tokens": {
+        "content": "in order to import PRPS and DUBI tokens to metamask please do the following: 1) Get the PRPS token address from prps.io (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/oEGKKbSTFUGWcaKu.mp4). 2) import the token to metamask using the address (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/HekUZrCtydwzjOuV.mp4) 3) repeat this process for DUBI and USDC. PRPS (Polygon): 0x972999c58BbcE63a2e398d4ED3Bde414b8349eB3\nDUBI (Polygon): 0x950e1561B7A7dEB1A32A6419FD435410daf851B0 USDC (Polygon): 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174. "
+    },
+    "delete account": {
+        "content": "You can request the deletion of your Mobile Minigames account and all its data. Find our privacy policy here: https://gamingforgood.net/c/privacy. Be aware that doing so will irreversibly delete your Mobile Minigames account and all associated progress. Deleting your Mobile Minigames account will not enable linking previously linked social media accounts to a new or different Mobile Minigames account. It will also not fix any bugs with your account. Please note that Customer Support will not be able to undo this. Please confirm you want to delete your account forever.  ",
+        "shortcut": [
+            "da!"
+        ]
+    },
+    "blockchain 12 words": {
+        "content": "Get your 12 words from metamask AND in game and write BOTH down (if you have both active at the same time): How to get your 12 word passphrase from your MoMi account: 1) Open blockchain and unlock it if its not already unlocked 2) If you can't unlock it create a new wallet 3) Open the slideout and tap settings 4) Tap 12 word passphrase button 5) Tap reveal passphrase in the popup 6) Write it down and keep it safe (video steps: https://www.youtube.com/watch?v=3fl-sI8B15U). You can get your 12 words from your metamask wallet by 1) Unlocking metamask wallet with password 2) Tapping top right circle 3) Select settings 4) Select \"Security & Privacy\" option 5) Select Reveal Secret Recovery Phrase button and write it down (see video setps: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/WlHpswybnCFmFaRS.mp4). WRITE DOWN 12 WORDS FOR EVERYTHING BEFORE CONTINUING. You can now import any wallet from inside the game using 12 words: 1) if its still locked there should be an import button at the top of the screen (see screenshot: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/AoHMliFLGiSmeEVq.png) 2) if its open then you can import a wallet via the settings in slideout menu 3) select \"Restore wallet\" button 4) Tap restore in confirmation prompt (see video steps: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/FdeabthqlwnmHHfc.mp4).  You can also import any wallet to metamask using 12 words: 1) Lock metamask if its not locked by tapping on the top right circle and selecting \"lock\" button 2) Tap \"forgot password?\" below the unlock button. 3) Enter your 12 words you have written down  (see short video https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/BLiIcQTteswnFfeI.mp4). ",
+        "shortcut": [
+            "tw!"
+        ]
+    },
+    "charged back": {
+        "content": "Charge backs are against our ToS and is an unfair game practice as you keep the rewards in game while getting a refund for your purchase. The penalty of breaking our ToS is rare trust. Fortunately you can completely revert the penalty by spending x2 the amount that you charged back for. To see the bail out requirements do the following: 1) Tap on the avatar in the top left in main menu 2) Tap on the bail out button (see example video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/SzomYMWdiOMfdzmt.mp4). "
+    },
+    "bad experience cash": {
+        "content": "Thank you for your honest response! Feel free to provide feedback to us so we can improve the experience of the game for you. There is still a lot of functionality that will be implemented in the Metaverse (legacy NFTs for example will be able to have exclusive skins equipped to make them generate Crypton indefinately). Additionally with a larger player base the value of your assets should increase as time goes on. Lastly PRPS and DUBI tokens are designed to increase in value as time moves on. It might just take a bit of time but the value of assets in the game will increase with time. If you experience any more issues don't hesitate to report them as always. Kind regards, MoMi Support."
+    },
+    "wallet safety": {
+        "content": " I would suggest creating a new wallet and writing down the 12 word passphrase on a piece of paper. Keeping your 12 words on your device or on your pc or on a cloud service like google drive in any form (note or screenshot) is not a secure way of storing your 12 word passphrase. Additionally, only use your metamask wallet on trusted websites. "
+    },
+    "referrals where": {
+        "content": "When you purchase a TTTT boost you get placed in a queue, as soon as new players download and install the game they get placed into the community of someone in the queue. You will receive your referrals in the future. "
+    },
+    "replays broken": {
+        "shortcut": [
+            "rd!"
+        ],
+        "content": "Replays have been disabled in anticipation of upcoming updates. If you are stuck on the replay quest you can tap and hold the next daily button for 3 seconds to start the Auto Dailies feature, this should complete all quests for you. "
+    },
+    "lost 12 words 2": {
+        "content": "If you don't remeber your phrase, find where you wrote it down. If you can't find it, you can always create a new wallet. We cannot provide any support for restoring or revealing your passhprase as we do not have it. "
+    },
+    "NFT pending": {
+        "content": "NFTs that are exported and bought takes 30 days to become available in the Blockchain building to avoid chargebacks. It still generates Crypton. "
+    },
+    "performance": {
+        "shortcut": [
+            "perf!"
+        ],
+        "content": "Please try the following: 1) Turn on Low Performance mode in Settings building \"Preferences\" tab (see screenshot: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/TXXGKAqknAzeItMV.png). 2) Turn on \"Battery saver\". 3) Turn off \"Smart replays\", \"Replays\" and \"Spectate\" (see screenshot: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/smVYDApyCFACAYER.png). "
+    },
+    "12 words language": {
+        "content": "you can convert your language phrase to english in the following way: 1) Unlock the wallet in game using your language phrase 2) Go to blockchain settings 3) Reveal your 12 word passphrase 4) Switch the language to english (see video of steps: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/lJeUVoaIQzzqNJXK.mp4). ",
+        "shortcut": [
+            "wlang!"
+        ]
+    },
+    "unlock wallet bug": {
+        "content": "Please do the following: 1) Open the slideout menu in Blockchain building 2) Tap on one of they disabled options 3) Enter the word and confirm. It should work after that (see short video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/aMJhWpsblUNNiOkr.mp4). "
+    },
+    "withdraw crypton": {
+        "content": "In order to withdraw you need to have Crypton, if you have Crypton you can donate the Crypton in the Best Game building by tapping the Giving Works button and Gifting a chosen amount of Crypton. This Crypton will then be converted into PRPS tokens and sent to the wallet that you have connected in game to your Blockchain building. From there you can sell the PRPS on various exchanges. Note: in order to gift crypton you need to have completed every bootcamp quest except the referral quest.  "
+    },
+    "how to earn": {
+        "shortcut": [
+            "he!"
+        ],
+        "content": "you can earn Crypton in the following ways: 1) Buy ability sets in Spellbook to generate passive Crypton generation 2) Earn Crypton by completing challenges 3) Selling collectibles in the Auction House 4) Receive Crypton donations from your community 5) Purchase deals that give Crypton as a reward.  6) In the metaverse there a lot of ways to generate Crypton such as joining or creating a scholarship, joining or owning land, exporting NFTs etc 7) Through the Crypton crystal. Here are some links that might help: https://cosnews.net/how-to-cash-out-with-crypton/ | https://youtu.be/L4vBlP3cTK4 | https://youtu.be/xlwBirX28C4. "
+    },
+    "name change": {
+        "content": "You can change your display name in the Avatar building (upper left square with face in the Main Menu) and then tapping the edit button next to your name (see screenshot: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/AoDbxOsDZvpSmswP.png). "
+    },
+    "report player": {
+        "content": "please report the player from within the game: see video on how to do so: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/KDhYElFsHPmjQAoy.mp4. There are also other moderation tools available to you such as hiding a user or muting a user or banning a user in your personal chat and your community chat. "
+    },
+    "cash out": {
+        "content": "First step to using PRPS tokens is to set up your metamask here is an example video on how to do so on mobile: https://www.youtube.com/watch?v=WtfMejYfQZo. In order to cash out PRPS you need to use one of the various exchanges where users are selling PRPS tokens for other tokens. Popular exchanges are dubiex.com, quickswap and coingecko. These exchanges have users buying and selling using the PRPS/USDC pair (on quickswap you can also trade the PRPS/MATIC pair), so you would have to convert PRPS tokens to USDC or MATIC tokens. From there you can swap USDC or MATIC tokens to your fiat using exchanges that support the polygon network such as Binanace. ",
+        "shortcut": [
+            "co!"
+        ]
+    },
+    "thanks for report": {
+        "content": "Thank you for reporting this. "
+    },
+    "langauge feedback": {
+        "content": "In order to look into the issue we would need some additional information: 1) What is the language(s) in question? 2) What is the word or phrase in english? 3) What is the correct word or phrase in the language? ",
+        "shortcut": [
+            "langf!"
+        ]
+    },
+    "closing thread": {
+        "content": "we will be closing this thread due to a lack of response. Feel free to report the issue or any othe rissue again if you keep experiencing issues. ",
+        "shortcut": [
+            "ct!"
+        ]
+    },
+    "folder": {
+        "shortcut": []
+    },
+    "lost 12 words 1": {
+        "content": "1) Do you still have your 12 words written down somewhere? Maybe a screenshot on your device? 2) Are you still logged in to your wallet? If you are still logged in to the wallet on your device you can reveal your passphrase using your 12th word by tapping on the settings button in the slideout in the Blockchain building and choosing the reveal passphrase button (see short video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/JNCsJMINNLNaXjFt.mp4). Are you able to do this? Note: If you are still logged in to your wallet but only forgot your 12th word you can try to look at this list of words to see if you remember which word it would be (see list: https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). Careful: you only have 2 guesses, if you type it wrong 2 times your wallet will get locked. "
+    },
+    "weekly events progress": {
+        "content": "The Achievements event progress does not reset until you complete the event. The progress shown have been completed in a previous weekly event cycle. You have already received these rewards in the past. ",
+        "shortcut": [
+            "wep!"
+        ]
+    },
+    "refunded": {
+        "content": "As requested we hereby refund your purchase and removed the rewards from your account. Please note that this is an exception case, as usually such refunds are not covered by ToS. It can take several business days for the Store to process and even longer for you to get your money back. If you get penalties on your account please contact us again so we can remove it for you."
+    },
+    "two mains": {
+        "shortcut": [
+            "tm!"
+        ],
+        "content": "Please do the following: 1) Log into Facebook with your account 2) Log into Facebook with the other account(s) 3) Report this issue from the other account(s) so we can verify them. 4) Let us know what the name or id is of the other account. "
+    },
+    "puzzles": {
+        "shortcut": [
+            "puz!"
+        ],
+        "content": "There is a limit of 6 puzzle pieces for purchases each week. However, additional purchases still increase the timer. If the weekly reset happens while the timer is active you will now automatically reveal 6 more pieces without making a purchase. If the timer runs out before weekly reset you will have to purchase each puzzle piece up to 6 pieces as usual. Note: this only applies to purchases, there is no limit on puzzle pieces for subscriptions. If you purchase any subscription you will reveal an new puzzle piece every time. "
+    },
+    "how to play": {
+        "content": "In the Support building and the Settings building there is a tab called \"How to Earn\", it will explain the basics of the most exciting part of the game for many players: how to earn real cash by playing the game (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/jbqnyYdmeDnItAdr.mp4). Additionally, in most features of the game there is a yellow button with a question mark. These buttons open the video guides popup with a video explaining the feature and giving some extra tips. Finally, most casual players just log in every day and do their daily quests and tap the Game Guide to do all their green and red dots (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/LzHNqaYNIsBMVutQ.mp4) and complete their weekly events every week which can be found in the weekly events building. I recommend joining an active community and asking questions in the community chat. "
+    },
+    "PRPS price": {
+        "content": "the value of PRPS tokens are determined by the market just like any other token. What users are buying and selling the value for is what the value is on that exchange. For insight into the market and the value of the token feel free to head over to the PRPS community discord: https://discord.gg/5XS92cv8 and ask any questions there, the community would be happy to help. In the game we base the price of PRPS and DUBI tokens as 10usd because you can buy deals on our shop using PRPS and DUBI at a rate of 10usd per token (note: deals on the g4g shop are 30% cheaper, so PRPS and DUBI is actually worth 13usd when purchasing deals on the shop). Additionally, there are always buy orders on some exchanges for DUBI so you are guaranteed to get 10usd for DUBI somewhere. If you have any feedback on the game feel free to share it in the feedback channel. If you are experiencing any issues in the game don't hesitate to report them. ",
+        "shortcut": [
+            "pp!"
+        ]
+    },
+    "Spellbook Crypton": {
+        "content": "Crypton from the Spellbook can fluctuate quite a bit. The amount you get is based on your ability sets but also other things like how much Crypton is in the pool and how many users log in that are eligible to receive crypton and most importantly: random distribution. It is normal for Crypton to go down after time. This is not a bug. With the Metaverse expansion a lot more players are logging in that is why it dropped. "
+    },
+    "missing spin": {
+        "content": "Some people have it some people don't. In a few weeks everyone will have it. ",
+        "shortcut": [
+            "ms!"
+        ]
+    },
+    "common crash debug info": {
+        "content": "1) What device do you have? 2) What operating system is your device using? Android 10? etc? 3) What is the in game name or id of the affected account? 4) Is it for all accounts or only a specific account? "
+    },
+    "blockchain reset": {
+        "content": "The expansion came out less than a month ago, the first time ever you will be able to claim your NFTs will be in about 11 days. NFTs obtain by using G4G Crypton or PRPS or DUBI were available immediately. You can unlock your building by opening the slideout and tapping on one of the disabled options, make sure you have your 12 word passphrase written down (if you don't have it written down you can reveal your passphrase by tapping the settings button in the slideout and entering your 12th word). "
+    },
+    "greetings again": {
+        "shortcut": [
+            "ga!"
+        ]
+    },
+    "List Menu": {},
+    "Selection Test": {},
+    "search phrases": {
+        "shortcut": []
+    },
+    "Phrase from selection": {},
+    "Insert Date": {
+        "shortcut": [
+            "dt!"
+        ]
+    },
+    "resolved": {
+        "shortcut": [
+            "rs!"
+        ]
+    },
+    "qa fixed": {
+        "shortcut": [
+            "qa!"
+        ]
+    },
+    "Display window info": {},
+    "Insert Time": {
+        "shortcut": [
+            "tt!"
+        ]
+    },
+    "greetings": {
+        "shortcut": [
+            "gt!"
+        ]
+    },
+    "respond": {
+        "shortcut": [
+            "rq!"
+        ]
+    },
+    "production commit": {
+        "shortcut": [
+            "pc!"
+        ]
+    },
+    "Abbreviation from selection": {},
+    "additional info": {
+        "content": "in order to look into the issue we would need some additional information: ",
+        "shortcut": [
+            "ai!"
+        ]
+    },
+    "run altemp": {},
+    "athene stream": {
+        "content": "Athene is live every day at: https://www.twitch.tv/athenelive. Usually at 8:30pm CET, sometimes earlier sometimes later. You can add a notification for when he goes live on Twitch or you can check the various social media channels (discord for example: https://discord.gg/nqHNPbxA or Twitter: https://twitter.com/AtheneLOL). "
+    },
+    "pp": {
+        "content": "https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/SpeiGxJVHSUDsMVx.png"
+    },
+    "emails": {
+        "content": "support@mobileminigames.com\n"
+    },
+    "blockchain workaround": {
+        "content": "Please try the following: 1) Open slideout in Blockchain building 2) Tap on one of the disabled entries 3) Enter your phrase there (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/ZNBUroTJDhpIildq.mp4). Let us know if this fixed the issue. "
+    },
+    "register runner": {
+        "content": "yeah, not the right something. this is what you need to use:\nsudo docker run --rm -t -i -v '/home/airtestpc4/airtest/airtestrunner/config4':/etc/gitlab-runner gitlab/gitlab-runner register --non-interactive --url \"https://gitlab.botogames.com/\" --registration-token GR1348941P4DjtHTEAMV1VsKboCxg --output-limit 40960 --executor \"docker\" --limit 1 --env \"LOCAL_REGISTRY=172.17.0.1:5000\" --env \"AIR_MINIO=192.168.178.26:9000\" --env \"AIR_S3_CACHE=http://192.168.178.26:8080/s3_cached\" --env \"DOCKER_TLS_CERTDIR=\" --docker-privileged --docker-volumes \"/certs/client\" --docker-volumes \"/cache\" --docker-volumes \"/home/airtestpc4/.android:/root/.android\" --docker-image \"ubuntu\" --name \"android_pixel3a\" --tag-list \"air_pc04, android_air, android_pixel3a, android_pixel\" --env \"DEVICE=192.168.1.101:5555\"\nreplace the DEVICE, AIR_MINIO, AIR_S3_CACHE environment variables with the right ips (depends on the device and airtest pc), and the --tag-list, --name with the name of the device. there's a base command located inside register.txt for each airtest pc, but the file may not be fully updated so you might prefer to use this as a base. if that's the case, you'll also want to replace the /home/... path to the config file and other stuff with the correct path depending on the airtest pc.\nalso, if you're going to save this command somewhere public, remove the --registration-token value since that shouldn't really be public."
+    },
+    "xtemp": {
+        "content": "shorturl.at/mnYZ8 # fu\nshorturl.at/rtY19 # hacker\n"
+    },
+    "aw": {
+        "content": "cd /opt/activitywatch/aw-watcher-input/ && run aw-watcher-input"
+    },
+    "claim NFT": {
+        "content": "Your NFT successfully exported, you can sell it in the Auction House for example (see screenshot: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/UamQyAaPirODLBMF.png) you can also find the NFT in your collection by filtering for exclusive (see screenshot: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/JjdIkDfaTeuDPeSE.png), if you tap to inspect the hero and tap claim NFT it shows up in your Blockchain building (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/ACagdwdDDdjtBHCu.mp4). Kind regards, MoMi Support."
+    },
+    "for reak": {
+        "shortcut": [
+            "fr!"
+        ],
+        "content": "fr fr"
+    },
+    "temp phrase": {
+        "content": "Enter phrase contents",
+        "shortcut": [
+            "tp!"
+        ]
+    },
+    "no cap": {
+        "content": "no cap hella sus caught in 4k bussin fr fr ong on god go brr cuh bussin rent free skrrt say less slaps low key vibin vibe check bet main character energy drip cheugy finna boujee",
+        "shortcut": [
+            "nc!"
+        ]
+    },
+    "blocks": {
+        "content": "To get blocks you need to: 1) Be on a plot when the daily reset happens 2) Login and connect to the internet the next day (it could take up to  2 hours for blocks to start dropping). ",
+        "shortcut": [
+            "bd!"
+        ]
+    },
+    "crypton gift block": {
+        "shortcut": [
+            "va!"
+        ],
+        "content": "Please reveal your passphrase in the Blockchain building, afterwards you should be able to donate crypton again. Let us know if this fixed your issue. "
+    },
+    "verify1": {
+        "shortcut": [
+            "ve!"
+        ],
+        "content": "1) What is the momi id of the account you want to verify? 2) What is the momi id of the account you accidentally verified? 3) Please provide a screenshot of any of the following from the account you want to verify: - Your achievements building in the main menu if you are level 10 or above - Your shop building while shop is open if you have more than 1500 VIP exp - Your settings building with facebook button showing your facebook account name or \"reconnect\".  "
+    },
+    "answered question": {
+        "shortcut": [
+            "aq!"
+        ],
+        "content": "I trust this answers your question. "
+    },
+    "check support": {
+        "content": "Please check on the thread in the support building and respond to support (see short video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/hIALXVVXtsZZpcGb.mp4). ",
+        "shortcut": [
+            "sb!"
+        ]
+    },
+    "looking into1": {
+        "shortcut": [
+            "Li!"
+        ],
+        "content": "We are looking into your issue and will get back to you as soon as we can. It might take a while to get to your issue. "
+    },
+    "salepoints reduced": {
+        "shortcut": [
+            "sp!"
+        ],
+        "content": "Deals and rewards are subject to change to keep the game balanced and fair for all users. The amount of Sale Points you receive is determined by a few things in the code, including the relative value of your currency or even platform (iOS vs Android). For example, 100usd give more Sale Points than 100 of a weaker currency. Legacy accounts have some benefits, such as always receiving more Sale Points regardless of their currency value. Note: Changing currency or country is against the store terms of service and could lead to a permanent ban and loss of legacy account privileges.  "
+    },
+    "closing issue": {
+        "shortcut": [
+            "ci!"
+        ],
+        "content": "This issue will be closed due to lack of response. However, feel free to reopen a new issue in the future. "
+    },
+    "lost purchase": {
+        "shortcut": [
+            "lp!",
+            "cb!"
+        ],
+        "content": "As long as the purchase does not appear in your purchase history then there has been no charge. You can find your purchase history in the Support building, Payment tab: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/rMjoKMcZBzxiRbKy.png. Notifications are often wrong when transactions fail. Simply retrying to purchase the deal should work and you will receive the rewards. If you have been charged for something that is not in your purchase history we would need you to provide the transaction ID. For Google Play you can find the transaction id in your email or by following instructions on this link: https://support.google.com/googleplay/answer/2850369?hl=en. For Apple you can find the transaction ID (called the Document number) also in your email or by following these steps: https://support.apple.com/en-us/HT204088. In addition to the transaction ID we need to know the following: 1) The account of the purchase 2) The date of the purchase 3) The boost that was purchased. Looking forward to your response. If you suspect any double charge its better to provide the transaction ID to us, requesting a chargeback with your bank or a refund on the Store will result in your account being striked, which could lead to various penalties. "
+    },
+    "additional info caps": {
+        "shortcut": [
+            "Ai!"
+        ],
+        "content": "In order to look into the issue we would need some additional information: "
+    },
+    "looking into": {
+        "content": "we are looking into your issue and will get back to you as soon as we can. It might take a while to get to your issue. ",
+        "shortcut": [
+            "li!"
+        ]
+    },
+    "provide screenshot": {
+        "content": "Please provide a screenshot of the issue. There are 3 ways to provide a screenshot: 1) Upload through the Support building by tapping the upload button in the Bug Report tab (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/zABprPNBKxUVcHCk.mp4) after you have made a bug report 2) Join our discord server: https://discord.com/invite/6P8d572 and let me know when you joined so I can redirect you to the right thread. 3) provide your email so we can contact you for the screenshot. ",
+        "shortcut": [
+            "ps!",
+            "ss!"
+        ]
+    },
+    "blockchain missing prps": {
+        "content": "1) What date did you donate Crypton? 2) How much Crypton did you donate? 3) What is your Blockchain wallet public address? ",
+        "shortcut": [
+            "mp!"
+        ]
+    },
+    "fixes issue": {
+        "content": "Please let us know if this fixes your issue. ",
+        "shortcut": [
+            "fi!"
+        ]
+    },
+    "restore account": {
+        "shortcut": [
+            "ra!"
+        ],
+        "content": "In order to look into the issue we would need some additional information: 1) What platform are you using to connect to your original account? Twitch? YouTube? 2) What other platforms do you have connected that you could use? Have you tried using them? 3) What happens when you try to connect, is there an indication of failure? does it load forever? 4) Have you tried reinstalling the game? 5) Have you tried the repair button in the support building? 6) What is the in game name of your account? 7) If you have made any purchases on the original account you could try the restore purchase button in the support building? \u200bIn order to regain access to an account that you previously made purchases on, you can use the Restore purchase option in the Support building of the game. \u200bYou can find the Restore Purchase option in the Support building of the game by navigating to the 'Account' tab and scrolling to the bottom of the 'Account access' article. See short video here: https://cos-dev-attachments.s3.eu-central-1.amazonaws.com/ShareX/Georg/2022/05/restorepurchase_eng.mp4. Note: once an account is connected to your momi game it cannot be disconnected or changed ever or used with a different momi account. "
+    },
+    "looking forward": {
+        "shortcut": [
+            "lf!"
+        ],
+        "content": "Looking forward to your response. "
+    },
+    "repair": {
+        "shortcut": [
+            "rp!"
+        ],
+        "content": "Please try the following: 1) repair the game from the Support building of the game. Make sure that your progress is synced with our servers before doing so! Note, you will have to sign in again so please ensure you have your account details. 2) If repairing did not work try reinstalling the game. Please let us know if this fixed the issue, or if the issue persists afterwards. "
+    },
+    "thanks": {
+        "content": ", thank you for contacting MoMi Support.",
+        "shortcut": [
+            "ty!"
+        ]
+    },
+    "report issue": {
+        "shortcut": [
+            "ri!"
+        ],
+        "content": "Please report the issue from inside the game via the Support building. This allows our coders to access your game logs and game state and get to the issue sooner. Remember to add screenshots and videos of the issue to ensure it gets fixed as fast as possible (see short video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/bbEMUnCxTARxnHdw.mp4). Remember to respond here with your in game username so we know its you. "
+    },
+    "five star": {
+        "content": "We're glad your issue is resolved! If you are enjoying the game, please share your experience with a 5-Star review on the Store: https://l.linklyhq.com/l/1SFTp ",
+        "shortcut": [
+            "fs!"
+        ]
+    },
+    "describe issue": {
+        "content": "Please describe the issue you are having so we can look into it for you. ",
+        "shortcut": [
+            "di!"
+        ]
+    },
+    "information added": {
+        "shortcut": [
+            "ia!"
+        ],
+        "content": "This information has been added to the ticket. "
+    },
+    "goodbeye": {
+        "shortcut": [
+            "gb!"
+        ],
+        "content": "I trust this answers your question. If you have any further questions feel free to reach out to us again. Kind regards, MoMi Support. "
+    },
+    "gem mine": {
+        "content": "In order for friends to show in Gem Mine you can try the following: 1) Make sure that both you and your friend are logged in with your Facebook accounts (In the Settings building your name should be on the blue button, if it says \"recconnect\" or \"connect\" you need to connect again. 2) Both you and your friend should renew permissions in Facebook if they expired: https://www.facebook.com/settings?tab=applications&ref=settings, if they haven't expired try resetting them by tapping the remove button and then connecting to Facebook again from within the game. After reconnecting you should see the game in Facebook settings again with the text \"Active\". 3) Please ensure your privacy settings is set to public everywhere https://www.facebook.com/settings?tab=privacy. 4) If step 1 and 2 and 3 don't work please try reinstalling the game for the changes to take effect. Please let us know if this resolved your issue. ",
+        "shortcut": [
+            "gm!"
+        ]
+    },
+    "further questions": {
+        "content": "If you have any further questions don't hesitate to ask. ",
+        "shortcut": [
+            "fq!"
+        ]
+    },
+    "metaverse update": {
+        "shortcut": [
+            "mu!"
+        ],
+        "content": "Blockchain functionality is currently disabled in anticipation of the Metaverse expansion. Until then exporting will not work. Everything will be enabled again within the next few weeks! "
+    },
+    "referrals broken": {
+        "content": "In order for referrals to work the user must install the game from the referral link, installing the game again after the account already exists does not work. Referrals have some technical issues on some platforms such as Bluestacks. Referral links sometimes don't work on certain devices and accounts due to technical reasons. We rely on 3rd party services and cannot fix things on their side. If this happens the referrals cannot be fixed manually. Most users report referrals to be working fine and the issue is an extremely difficult issue to solve. If you are not a free-to-play user the best option is to purchase the TTTT boost, referrals and community additions from this boost do not rely on the 3rd party service and will work. Otherwise the best option is to try the referral link again with a new account at a later time (and on a different device if possible). ",
+        "shortcut": [
+            "rb!"
+        ]
+    },
+    "kind regards": {
+        "shortcut": [
+            "kr!"
+        ],
+        "content": "Kind regards, MoMi Support. "
+    },
+    "g4g purchase troubleshoot": {
+        "content": "1) What is the exact name(s) of the boost(s) of purchase? 2) What is the in game name of the account you are using to purchase the boosts 3) What is the in game name of the account thats receiving the purchase 4) What is your public wallet address used to make the purchase? ",
+        "shortcut": [
+            "gp!"
+        ]
+    },
+    "compensated": {
+        "shortcut": [
+            "uc!"
+        ],
+        "content": "please confirm you have been compensated via the in-game mailbox. "
+    },
+    "provide video": {
+        "content": "Please provide a video of the issue. There are 3 ways to provide a video: 1) Upload through the Support building by tapping the upload button in the Bug Report tab (see video: https://s3.eu-central-1.amazonaws.com/cos-dev-attachments/ShareX/notsimon/zABprPNBKxUVcHCk.mp4) 2) Join our discord server: https://discord.com/invite/6P8d572 and let me know your discord name when you joined so I can redirect you to the right thread. 3) provide your email so we can contact you for the video. ",
+        "shortcut": [
+            "pv!"
+        ]
+    },
+    "inpatient user": {
+        "shortcut": [
+            "iu!"
+        ],
+        "content": "as mentioned above, we are looking into your issue and will get back to you as soon as we can. When we have an update or require more information we will contact you. It might take some time to get back to you, we thank you for your patience. Please refrain from reporting this issue again. If you have any other questions feel free to ask them. If you are experiencing any other issues don't hesitate to report them. Note: all communications are recorded to the ticket, disrespectful behavior toward support staff can result in account trust penalties. "
+    },
+    "thanks for responding": {
+        "shortcut": [
+            "tr!"
+        ],
+        "content": "thanks for your response! "
+    },
+    "replace": {
+        "content": "sed -i $(fd -e clj) -e 's/korag/foo-korag/g'\n\nfind /home/simonl/repos/idlegame/ -name random*production.py -type f -exec sed -i s/skip_tutorial_actions import ResetGlobalsAction/common_methods_actions import ResetGlobalsAction/gI {} ;"
+    }
+}

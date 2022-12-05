@@ -1,4 +1,5 @@
 import datetime
+import os
 import subprocess
 import threading
 import time
@@ -47,22 +48,44 @@ copy, paste = init_xclip_clipboard()
 def log(*args) -> None:
     with threading.Lock():
         print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, flush=True)
-        # with open(f'{os.path.join(LOGS_PATH, str(LOGS_SESSION))}.txt', 'a+') as output:
-        #     print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, file=output)
+        with open(f'{os.path.join(env.LOGS_PATH, str(env.LOGS_SESSION))}.txt', 'a+') as output:
+            print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, file=output)
 
 
-# def debug_log(*args) -> None:
-#     with open(f'{os.path.join(LOGS_PATH, str(LOGS_SESSION))}_DEBUG.txt', 'a+') as output:
-#         print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, file=output)
+def debug_log(*args) -> None:
+    with open(f'{os.path.join(env.LOGS_PATH, str(env.LOGS_SESSION))}_DEBUG.txt', 'a+') as output:
+        print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, file=output)
+
+
+def type_and_replace(shortcut: str):
+    """
+    Types the content corresponding to a given shortcut and removes the typed shortcut (also copies content to clipboard)
+    """
+    content = find_content(shortcut)
+    if content:
+        copy(content)
+        for _ in range(len(shortcut) + 1):
+            keyboard.Controller().tap(keyboard.Key.backspace)
+        keyboard.Controller().type(content)
+
+
+def find_content(shortcut: str):
+    """
+    Gets the content form a shortcut if found in the key map file.
+    """
+    for data in env.KEY_MAP.values():
+        for shortcuts in data.get("shortcut", []):
+            if shortcut in shortcuts:
+                return data['content']
 
 
 def on_press(key):
-    # try:
-    #     env.KEY_PRESSED = key.char
-    #     print('Alphanumeric key pressed: {0} '.format(key.char))
-    # except AttributeError:
-    #     env.KEY_PRESSED = key
-    #     print('special key pressed: {0}'.format(key))
+    try:
+        env.KEY_PRESSED = key.char
+        debug_log('Alphanumeric key pressed: {0} '.format(key.char))
+    except AttributeError:
+        env.KEY_PRESSED = key
+        debug_log('special key pressed: {0}'.format(key))
     env.LATEST_KEY = env.KEY_PRESSED
 
 
@@ -71,38 +94,24 @@ def on_release(key):
     if (len(env.PRESSED_KEYS) > 3
             and (keyboard.Key.shift in env.PRESSED_KEYS[-2:])
             and (keyboard.KeyCode.from_char('1') in env.PRESSED_KEYS[-2:])):
-        print('! pressed!')
         for chunk_size in range(2, 5):
-            print(env.PRESSED_KEYS)
+            debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
                 return
-            print("chunk size:", chunk_size)
             combo = "".join([elem.char for elem in env.PRESSED_KEYS[-chunk_size - 2:-2]])
-            print("combo:", combo)
-            if combo in env.KEY_MAP.keys():
-                print(env.KEY_MAP[combo])
-                copy(env.KEY_MAP[combo])
-                for _ in range(len(combo) + 1):
-                    keyboard.Controller().tap(keyboard.Key.backspace)
-                keyboard.Controller().type(env.KEY_MAP[combo])
+            log("combo:", combo)
+            type_and_replace(combo)
 
     if key == keyboard.KeyCode.from_char('!'):
-        print('! pressed!')
         for chunk_size in range(2, 5):
-            print(env.PRESSED_KEYS)
+            debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
                 return
-            print("chunk size:", chunk_size)
             combo = "".join([elem.char for elem in env.PRESSED_KEYS[-chunk_size - 1:]])
-            print("combo:", combo)
-            if combo in env.KEY_MAP.keys():
-                print(env.KEY_MAP[combo])
-                copy(env.KEY_MAP[combo])
-                for _ in range(len(combo) + 1):
-                    keyboard.Controller().tap(keyboard.Key.backspace)
-                keyboard.Controller().type(env.KEY_MAP[combo])
+            log("combo:", combo)
+            type_and_replace(combo)
 
-    print(f"released:{key}, !:{keyboard.KeyCode.from_char('!')}, {key == keyboard.KeyCode.from_char('!')}")
+    debug_log(f"released:{key}, !:{keyboard.KeyCode.from_char('!')}, {key == keyboard.KeyCode.from_char('!')}")
 
 
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
