@@ -120,10 +120,12 @@ def type_and_replace(shortcut: str):
 
 
 def replace_stuff(event):
+    log(event.__dict__)
+
     if event.event_type == 'up':
         return
     try:
-        env.PRESSED_KEYS.extend([elem.name for elem in keyboard.stop_recording() if elem.event_type == 'down'])
+        [env.PRESSED_KEYS.append(elem.name) for elem in keyboard.stop_recording() if elem.event_type == 'down' and not elem.modifiers]
     except:
         pass
     log(env.PRESSED_KEYS)
@@ -144,3 +146,4 @@ def replace_stuff(event):
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
+# fs!fs!fs!ffs!
