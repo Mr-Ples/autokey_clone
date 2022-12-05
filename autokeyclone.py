@@ -122,18 +122,18 @@ def type_and_replace(shortcut: str):
 def replace_stuff(event):
     if event.event_type == 'up':
         return
-
     try:
-        env.PRESSED_KEYS.extend([elem.name for elem in keyboard.stop_recording()])
+        env.PRESSED_KEYS.extend([elem.name for elem in keyboard.stop_recording() if elem.event_type == 'down'])
     except:
         pass
+    log(env.PRESSED_KEYS)
 
     if len(env.PRESSED_KEYS) > 2:
         for chunk_size in range(2, 5):
             debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
                 return
-            chars = reversed(env.PRESSED_KEYS[-chunk_size - 2:-2])
+            chars = env.PRESSED_KEYS[-chunk_size - 1:-1]
             combo = "".join(chars) + '!'
             log("combo:", combo)
             type_and_replace(combo)
