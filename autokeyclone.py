@@ -95,7 +95,7 @@ def write(message: str):
 def send(message: str):
     log(message)
     copy(message)
-    # paste()
+    paste()
 
 
 def log(*args) -> None:
