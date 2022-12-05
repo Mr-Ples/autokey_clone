@@ -120,30 +120,37 @@ def type_and_replace(shortcut: str):
 
 
 def replace_stuff(event):
-    log(event.__dict__)
+    global recording
 
+    debug_log(event.__dict__)
     if event.event_type == 'up':
         return
+
+    recorded_events_queue, hooked = recording
+    keys = list(recorded_events_queue.queue)
+    # keyboard.start_recording()
+    # keyboard.stop_recording()
+    # keyboard.start_recording()
     try:
-        [env.PRESSED_KEYS.append(elem.name) for elem in keyboard.stop_recording() if elem.event_type == 'down' and not elem.modifiers]
+        [env.PRESSED_KEYS.append(elem.name) for elem in keys if elem.event_type == 'down' and not elem.modifiers and elem.name != 'shift']
     except:
         pass
     log(env.PRESSED_KEYS)
-
+    log(keys)
+    log([key.modifiers for key in keys])
     if len(env.PRESSED_KEYS) > 2:
         for chunk_size in range(2, 5):
             debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
                 return
-            chars = env.PRESSED_KEYS[-chunk_size - 1:-1]
+            chars = env.PRESSED_KEYS[-chunk_size:]
             combo = "".join(chars) + '!'
             log("combo:", combo)
             type_and_replace(combo)
 
-    keyboard.start_recording()
+    # threading.Thread(target=keyboard.start_recording, daemon=True).start()
 
 
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
-# fs!fs!fs!ffs!
