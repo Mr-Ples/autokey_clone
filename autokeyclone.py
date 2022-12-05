@@ -113,7 +113,7 @@ def type_and_replace(shortcut: str):
     """
     content = find_content(shortcut)
     if content:
-        for _ in range(len(shortcut) + 1):
+        for _ in range(len(shortcut)):
             keyboard.press_and_release('backspace')
         send(content)
         env.PRESSED_KEYS = []
@@ -133,8 +133,9 @@ def replace_stuff(event):
             debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
                 return
-            combo = "".join(reversed(env.PRESSED_KEYS[-chunk_size - 2:-2]))
-            log("combo:", combo + '!')
+            chars = reversed(env.PRESSED_KEYS[-chunk_size - 2:-2])
+            combo = "".join(chars) + '!'
+            log("combo:", combo)
             type_and_replace(combo)
 
     keyboard.start_recording()
