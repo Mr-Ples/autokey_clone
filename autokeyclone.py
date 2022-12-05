@@ -115,8 +115,8 @@ def type_and_replace(shortcut: str):
     if content:
         for _ in range(len(shortcut)):
             keyboard.press_and_release('backspace')
-        send(content)
         env.PRESSED_KEYS = []
+        send(content)
 
 
 def replace_stuff(event):
@@ -136,7 +136,7 @@ def replace_stuff(event):
     log(env.PRESSED_KEYS)
     debug_log(keys)
     debug_log([key.modifiers for key in keys])
-    if len(env.PRESSED_KEYS) > 2:
+    if len(env.PRESSED_KEYS) > 1:
         for chunk_size in range(2, 5):
             debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
@@ -152,4 +152,4 @@ def replace_stuff(event):
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
-#
+#fs!fs!
