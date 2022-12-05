@@ -15,15 +15,9 @@ def init_wlclip_clipboard():
         p.communicate(input=text.encode('utf-8'))
 
     def paste_wlclip():
-        p = subprocess.Popen(
-            ['wl-paste'],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            close_fds=True
-        )
-        stdout, stderr = p.communicate()
-        # Intentionally ignore extraneous output on stderr when clipboard is empty
-        return stdout.decode(ENCODING)
+        keyboard.press('control')
+        keyboard.press_and_release('v')
+        keyboard.release('control')
 
     return copy_wlclip, paste_wlclip
 
@@ -36,10 +30,9 @@ def replace_stuff(event):
         return
 
     try:
-        print([elem.name for elem in     keyboard.stop_recording()])
+        print([elem.name for elem in keyboard.stop_recording()])
     except:
         pass
-    keyboard.press_and_release('backspace')
     copy("We're glad your issue is resolved! If you are enjoying the game, please share your experience with a 5-Star review on the Store: https://l.linklyhq.com/l/1SFTp")
     paste()
     # for char in "We're glad your issue is resolved! If you are enjoying the game, please share your experience with a 5-Star review on the Store: https://l.linklyhq.com/l/1SFTp":
