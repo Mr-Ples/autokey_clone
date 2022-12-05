@@ -8,6 +8,30 @@ import keyboard
 import env
 
 
+def init_xclip_clipboard():
+    DEFAULT_SELECTION = 'c'
+    PRIMARY_SELECTION = 'p'
+    ENCODING = 'utf-8'
+
+    def copy_xclip(text, primary=False):
+        text = str(text)  # Converts non-str values to str.
+        selection = DEFAULT_SELECTION
+        if primary:
+            selection = PRIMARY_SELECTION
+        p = subprocess.Popen(
+            ['xclip', '-selection', selection],
+            stdin=subprocess.PIPE, close_fds=True
+        )
+        p.communicate(input=text.encode('utf-8'))
+
+    def paste_xclip():
+        keyboard.press('ctrl')
+        keyboard.press_and_release('v')
+        keyboard.release('ctrl')
+
+    return copy_xclip, paste_xclip
+
+
 def init_wlclip_clipboard():
     def copy_wlclip(text):
         text = str(text)  # Converts non-str values to str.
@@ -18,14 +42,14 @@ def init_wlclip_clipboard():
         p.communicate(input=text.encode('utf-8'))
 
     def paste_wlclip():
-        keyboard.press('control')
+        keyboard.press('ctrl')
         keyboard.press_and_release('v')
-        keyboard.release('control')
+        keyboard.release('ctrl')
 
     return copy_wlclip, paste_wlclip
 
 
-copy, paste = init_wlclip_clipboard()
+copy, paste = init_wlclip_clipboard() if 'WAYLAND_DISPLAY' in os.environ else init_xclip_clipboard()
 
 
 def write(message: str):
@@ -104,7 +128,7 @@ def replace_stuff(event):
     except:
         pass
 
-    if len(env.PRESSED_KEYS) > 3:
+    if len(env.PRESSED_KEYS) > 2:
         for chunk_size in range(2, 5):
             debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
