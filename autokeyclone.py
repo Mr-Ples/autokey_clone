@@ -3,6 +3,7 @@ import os
 import subprocess
 import threading
 import time
+
 import keyboard
 
 import env
@@ -59,7 +60,7 @@ def init_wlclip_clipboard():
     return copy_wlclip, paste_wlclip
 
 
-copy, paste = init_wlclip_clipboard() if os.getenv('XDG_SESSION_TYPE') == 'wayland' else init_xclip_clipboard()
+copy, paste = init_wlclip_clipboard() if not os.getenv('XDG_CURRENT_DESKTOP') else init_xclip_clipboard()
 
 
 def write(message: str):
@@ -167,11 +168,10 @@ def replace_stuff(event):
             type_and_replace(combo)
 
 
-
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
 
 """
- 
+ fs! 
 """
