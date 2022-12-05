@@ -26,14 +26,9 @@ def init_xclip_clipboard():
         p.communicate(input=text.encode('utf-8'))
 
     def paste_xclip():
-        keyboard.play(
-            [
-                keyboard.KeyboardEvent(event_type='down', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=(), is_keypad=False),
-                keyboard.KeyboardEvent(event_type='down', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-                keyboard.KeyboardEvent(event_type='up', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-                keyboard.KeyboardEvent(event_type='up', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-            ], speed_factor=3
-        )
+        keyboard.press('ctrl')
+        keyboard.press_and_release('v')
+        keyboard.release('ctrl')
 
     return copy_xclip, paste_xclip
 
@@ -48,14 +43,9 @@ def init_wlclip_clipboard():
         p.communicate(input=text.encode('utf-8'))
 
     def paste_wlclip():
-        keyboard.play(
-            [
-                keyboard.KeyboardEvent(event_type='down', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=(), is_keypad=False),
-                keyboard.KeyboardEvent(event_type='down', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-                keyboard.KeyboardEvent(event_type='up', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-                keyboard.KeyboardEvent(event_type='up', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-            ], speed_factor=3
-        )
+        keyboard.press('ctrl')
+        keyboard.press_and_release('v')
+        keyboard.release('ctrl')
 
     return copy_wlclip, paste_wlclip
 
@@ -133,14 +123,6 @@ def type_and_replace(shortcut: str):
 
 
 def replace_stuff(event):
-    keyboard.play(
-        [
-            keyboard.KeyboardEvent(event_type='down', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=(), is_keypad=False),
-            keyboard.KeyboardEvent(event_type='down', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-            keyboard.KeyboardEvent(event_type='up', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-            keyboard.KeyboardEvent(event_type='up', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
-        ], speed_factor=3
-    )
     global recording
 
     debug_log(event.__dict__)
@@ -168,10 +150,19 @@ def replace_stuff(event):
             type_and_replace(combo)
 
 
+def rplc_stff(event):
+    paste()
+    replace_stuff(event)
+
+
 recording = keyboard.start_recording()
-keyboard.hook_key('1', replace_stuff)
+if not os.getenv('XDG_CURRENT_DESKTOP'):
+    keyboard.hook_key('1', replace_stuff)
+else:
+    keyboard.hook_key('!', rplc_stff)
 keyboard.wait()
 
+
 """
- fs! 
+
 """
