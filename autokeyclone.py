@@ -61,7 +61,7 @@ SPECIAL_KEYS = {
 while True:
     keyboard.start_recording()
     while True:
-        if keyboard.is_pressed('!'):
+        if keyboard.is_pressed('1'):
             time.sleep(0.4)
             break
     print([elem.name for elem in keyboard.stop_recording()])
