@@ -146,10 +146,7 @@ def replace_stuff(event):
             log("combo:", combo)
             type_and_replace(combo)
 
-    # threading.Thread(target=keyboard.start_recording, daemon=True).start()
-
 
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
-#fs!fs!
