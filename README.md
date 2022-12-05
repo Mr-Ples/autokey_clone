@@ -1,1 +1,2 @@
-# autokey_clone
+- `pip install -r requirements.txt` as usual
+- run script
