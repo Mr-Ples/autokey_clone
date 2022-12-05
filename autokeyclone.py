@@ -2,7 +2,7 @@ import datetime
 import os
 import subprocess
 import threading
-
+import time
 import keyboard
 
 import env
@@ -24,15 +24,15 @@ def init_xclip_clipboard():
         )
         p.communicate(input=text.encode('utf-8'))
 
-    def paste_xclip(primary=False):
-        selection = DEFAULT_SELECTION
-        if primary:
-            selection = PRIMARY_SELECTION
-        p = subprocess.Popen(
-            ['xclip', '-selection', selection, '-o'],
-            stderr=subprocess.PIPE
+    def paste_xclip():
+        keyboard.play(
+            [
+                keyboard.KeyboardEvent(event_type='down', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=(), is_keypad=False),
+                keyboard.KeyboardEvent(event_type='down', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+                keyboard.KeyboardEvent(event_type='up', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+                keyboard.KeyboardEvent(event_type='up', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+            ], speed_factor=3
         )
-        stdout, stderr = p.communicate()
 
     return copy_xclip, paste_xclip
 
@@ -47,10 +47,14 @@ def init_wlclip_clipboard():
         p.communicate(input=text.encode('utf-8'))
 
     def paste_wlclip():
-        p = subprocess.Popen(
-            ['wl-paste']
+        keyboard.play(
+            [
+                keyboard.KeyboardEvent(event_type='down', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=(), is_keypad=False),
+                keyboard.KeyboardEvent(event_type='down', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+                keyboard.KeyboardEvent(event_type='up', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+                keyboard.KeyboardEvent(event_type='up', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+            ], speed_factor=3
         )
-        p.communicate()
 
     return copy_wlclip, paste_wlclip
 
@@ -59,37 +63,38 @@ copy, paste = init_wlclip_clipboard() if os.getenv('XDG_SESSION_TYPE') == 'wayla
 
 
 def write(message: str):
-    steps = []
-    print('shift+1')
-    print(keyboard.key_to_scan_codes('!'))
+    keyboard.write(message)
+    # steps = []
+    #
+    # for char in message:
+    #     if char.isupper():
+    #         steps.append(f'shift+{char.lower()}')
+    #     elif not char.isalpha():
+    #         if env.SPECIAL_KEYS.get(char):
+    #             steps.append(f'shift+{env.SPECIAL_KEYS[char]}')
+    #         else:
+    #             steps.append(char)
+    #     else:
+    #         steps.append(char)
+    #
+    # for step in steps:
+    #     try:
+    #         keyboard.press(step)
+    #         keyboard.release(step)
+    #     except Exception as err:
+    #         print(err)
 
-    for char in message:
-        if char.isupper():
-            steps.append(f'shift+{char.lower()}')
-        elif not char.isalpha():
-            if env.SPECIAL_KEYS.get(char):
-                steps.append(f'shift+{env.SPECIAL_KEYS[char]}')
-            else:
-                steps.append(keyboard.key_to_scan_codes(char))
-        else:
-            steps.append(keyboard.key_to_scan_codes(char))
-
-    for step in steps:
-        try:
-            keyboard.press(step)
-        except Exception as err:
-            print(err)
-
-        try:
-            keyboard.release(step)
-        except Exception as err:
-            print(err)
+    # for char in message:
+    #     try:
+    #         keyboard._os_keyboard.type_unicode(char)
+    #     except:
+    #         pass
 
 
 def send(message: str):
     log(message)
     copy(message)
-    write(message)
+    # paste()
 
 
 def log(*args) -> None:
@@ -120,13 +125,21 @@ def type_and_replace(shortcut: str):
     """
     content = find_content(shortcut)
     if content:
-        # for _ in range(len(shortcut)):
-        #     keyboard.press_and_release('backspace')
+        for _ in range(len(shortcut)):
+            keyboard.press_and_release('backspace')
         env.PRESSED_KEYS = []
         send(content)
 
 
 def replace_stuff(event):
+    keyboard.play(
+        [
+            keyboard.KeyboardEvent(event_type='down', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=(), is_keypad=False),
+            keyboard.KeyboardEvent(event_type='down', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+            keyboard.KeyboardEvent(event_type='up', scan_code=47, name='v', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+            keyboard.KeyboardEvent(event_type='up', scan_code=29, name='ctrl', time=time.time(), device='/dev/input/event2', modifiers=('ctrl',), is_keypad=False),
+        ], speed_factor=3
+    )
     global recording
 
     debug_log(event.__dict__)
@@ -154,7 +167,11 @@ def replace_stuff(event):
             type_and_replace(combo)
 
 
+
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
-# W
+
+"""
+ 
+"""
