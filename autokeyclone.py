@@ -1,11 +1,14 @@
+import datetime
+import os
 import subprocess
-import env
+import threading
+
 import keyboard
+
+import env
 
 
 def init_wlclip_clipboard():
-    ENCODING = 'utf-8'
-
     def copy_wlclip(text):
         text = str(text)  # Converts non-str values to str.
         p = subprocess.Popen(
@@ -25,40 +28,91 @@ def init_wlclip_clipboard():
 copy, paste = init_wlclip_clipboard()
 
 
+def write(message: str):
+    for char in message:
+        if char.isupper():
+            keyboard.press_and_release(f'shift+{char.lower()}')
+        elif not char.isalpha():
+            if env.SPECIAL_KEYS.get(char):
+                keyboard.press_and_release(f'shift+{env.SPECIAL_KEYS[char]}')
+            else:
+                try:
+                    keyboard.press(char)
+                except Exception as err:
+                    print(err)
+                try:
+                    keyboard.release(char)
+                except Exception as err:
+                    print(err)
+        else:
+            try:
+                keyboard.press(char)
+            except Exception as err:
+                print(err)
+            try:
+                keyboard.release(char)
+            except Exception as err:
+                print(err)
+
+
+def send(message: str):
+    log(message)
+    copy(message)
+    paste()
+
+
+def log(*args) -> None:
+    with threading.Lock():
+        print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, flush=True)
+        with open(f'{os.path.join(env.LOGS_PATH, str(env.LOGS_SESSION))}.txt', 'a+') as output:
+            print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, file=output)
+
+
+def debug_log(*args) -> None:
+    with open(f'{os.path.join(env.LOGS_PATH, str(env.LOGS_SESSION))}_DEBUG.txt', 'a+') as output:
+        print(f'[{datetime.datetime.utcnow().replace(microsecond=0).time()} UTC] ', *args, file=output)
+
+
+def find_content(shortcut: str):
+    """
+    Gets the content form a shortcut if found in the key map file.
+    """
+    for data in env.KEY_MAP.values():
+        for shortcuts in data.get("shortcut", []):
+            if shortcut in shortcuts:
+                return data['content']
+
+
+def type_and_replace(shortcut: str):
+    """
+    Types the content corresponding to a given shortcut and removes the typed shortcut (also copies content to clipboard)
+    """
+    content = find_content(shortcut)
+    if content:
+        for _ in range(len(shortcut) + 1):
+            keyboard.press_and_release('backspace')
+        send(content)
+        env.PRESSED_KEYS = []
+
+
 def replace_stuff(event):
     if event.event_type == 'up':
         return
 
     try:
-        print([elem.name for elem in keyboard.stop_recording()])
+        env.PRESSED_KEYS.extend([elem.name for elem in keyboard.stop_recording()])
     except:
         pass
-    copy("We're glad your issue is resolved! If you are enjoying the game, please share your experience with a 5-Star review on the Store: https://l.linklyhq.com/l/1SFTp")
-    paste()
-    # for char in "We're glad your issue is resolved! If you are enjoying the game, please share your experience with a 5-Star review on the Store: https://l.linklyhq.com/l/1SFTp":
-    #     if char.isupper():
-    #         keyboard.press_and_release(f'shift+{char.lower()}')
-    #     elif not char.isalpha():
-    #         if env.SPECIAL_KEYS.get(char):
-    #             keyboard.press_and_release(f'shift+{env.SPECIAL_KEYS[char]}')
-    #         else:
-    #             try:
-    #                 keyboard.press(char)
-    #             except Exception as err:
-    #                 print(err)
-    #             try:
-    #                 keyboard.release(char)
-    #             except Exception as err:
-    #                 print(err)
-    #     else:
-    #         try:
-    #             keyboard.press(char)
-    #         except Exception as err:
-    #             print(err)
-    #         try:
-    #             keyboard.release(char)
-    #         except Exception as err:
-    #             print(err)
+
+    if len(env.PRESSED_KEYS) > 3:
+        for chunk_size in range(2, 5):
+            debug_log(env.PRESSED_KEYS)
+            if len(env.PRESSED_KEYS) < chunk_size:
+                return
+            combo = "".join(reversed(env.PRESSED_KEYS[-chunk_size - 2:-2]))
+            log("combo:", combo + '!')
+            type_and_replace(combo)
+
     keyboard.start_recording()
 
 

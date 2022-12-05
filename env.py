@@ -1,10 +1,16 @@
 import json
 import os
+import datetime
 
 HOME = os.path.abspath(".")
 print(HOME)
 if not os.path.isdir(HOME):
     os.mkdir(HOME)
+
+LOGS_SESSION = datetime.datetime.now().replace(microsecond=0)
+LOGS_PATH = os.path.join(HOME, 'logs')
+if not os.path.isdir(LOGS_PATH):
+    os.mkdir(LOGS_PATH)
 
 KEY_MAP_PATH = os.path.join(HOME, 'key_map.json')
 if not os.path.isfile(KEY_MAP_PATH):
@@ -37,3 +43,5 @@ SPECIAL_KEYS = {
     '>': '.',
     '?': '/',
 }
+
+PRESSED_KEYS = []
