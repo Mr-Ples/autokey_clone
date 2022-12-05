@@ -24,10 +24,15 @@ def init_xclip_clipboard():
         )
         p.communicate(input=text.encode('utf-8'))
 
-    def paste_xclip():
-        keyboard.press('ctrl')
-        keyboard.press_and_release('v')
-        keyboard.release('ctrl')
+    def paste_xclip(primary=False):
+        selection = DEFAULT_SELECTION
+        if primary:
+            selection = PRIMARY_SELECTION
+        p = subprocess.Popen(
+            ['xclip', '-selection', selection, '-o'],
+            stderr=subprocess.PIPE
+        )
+        stdout, stderr = p.communicate()
 
     return copy_xclip, paste_xclip
 
@@ -42,47 +47,49 @@ def init_wlclip_clipboard():
         p.communicate(input=text.encode('utf-8'))
 
     def paste_wlclip():
-        keyboard.press('ctrl')
-        keyboard.press_and_release('v')
-        keyboard.release('ctrl')
+        p = subprocess.Popen(
+            ['wl-paste']
+        )
+        p.communicate()
 
     return copy_wlclip, paste_wlclip
 
 
-copy, paste = init_wlclip_clipboard() if 'WAYLAND_DISPLAY' in os.environ else init_xclip_clipboard()
+copy, paste = init_wlclip_clipboard() if os.getenv('XDG_SESSION_TYPE') == 'wayland' else init_xclip_clipboard()
 
 
 def write(message: str):
+    steps = []
+    print('shift+1')
+    print(keyboard.key_to_scan_codes('!'))
+
     for char in message:
         if char.isupper():
-            keyboard.press_and_release(f'shift+{char.lower()}')
+            steps.append(f'shift+{char.lower()}')
         elif not char.isalpha():
             if env.SPECIAL_KEYS.get(char):
-                keyboard.press_and_release(f'shift+{env.SPECIAL_KEYS[char]}')
+                steps.append(f'shift+{env.SPECIAL_KEYS[char]}')
             else:
-                try:
-                    keyboard.press(char)
-                except Exception as err:
-                    print(err)
-                try:
-                    keyboard.release(char)
-                except Exception as err:
-                    print(err)
+                steps.append(keyboard.key_to_scan_codes(char))
         else:
-            try:
-                keyboard.press(char)
-            except Exception as err:
-                print(err)
-            try:
-                keyboard.release(char)
-            except Exception as err:
-                print(err)
+            steps.append(keyboard.key_to_scan_codes(char))
+
+    for step in steps:
+        try:
+            keyboard.press(step)
+        except Exception as err:
+            print(err)
+
+        try:
+            keyboard.release(step)
+        except Exception as err:
+            print(err)
 
 
 def send(message: str):
     log(message)
     copy(message)
-    paste()
+    write(message)
 
 
 def log(*args) -> None:
@@ -113,8 +120,8 @@ def type_and_replace(shortcut: str):
     """
     content = find_content(shortcut)
     if content:
-        for _ in range(len(shortcut)):
-            keyboard.press_and_release('backspace')
+        # for _ in range(len(shortcut)):
+        #     keyboard.press_and_release('backspace')
         env.PRESSED_KEYS = []
         send(content)
 
@@ -150,3 +157,4 @@ def replace_stuff(event):
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
+# W
