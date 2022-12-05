@@ -1,5 +1,5 @@
 import keyboard
-import time
+
 #
 # def init_wlclip_clipboard():
 #     DEFAULT_SELECTION = 'c'
@@ -58,14 +58,17 @@ SPECIAL_KEYS = {
     '>': '.',
     '?': '/',
 }
-while True:
-    keyboard.start_recording()
-    while True:
-        if keyboard.is_pressed('1'):
-            time.sleep(0.4)
-            break
-    print([elem.name for elem in keyboard.stop_recording()])
 
+
+def replace_stuff(event):
+    if event.event_type == 'up':
+        return
+
+    try:
+        print([elem.name for elem in     keyboard.stop_recording()])
+    except:
+        pass
+    keyboard.press_and_release('backspace')
     for char in "We're glad your issue is resolved! If you are enjoying the game, please share your experience with a 5-Star review on the Store: https://l.linklyhq.com/l/1SFTp":
         if char.isupper():
             keyboard.press_and_release(f'shift+{char.lower()}')
@@ -90,3 +93,9 @@ while True:
                 keyboard.release(char)
             except Exception as err:
                 print(err)
+    keyboard.start_recording()
+
+
+recording = keyboard.start_recording()
+keyboard.hook_key('1', replace_stuff)
+keyboard.wait()
