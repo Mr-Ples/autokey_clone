@@ -128,16 +128,14 @@ def replace_stuff(event):
 
     recorded_events_queue, hooked = recording
     keys = list(recorded_events_queue.queue)
-    # keyboard.start_recording()
-    # keyboard.stop_recording()
-    # keyboard.start_recording()
+
     try:
         [env.PRESSED_KEYS.append(elem.name) for elem in keys if elem.event_type == 'down' and not elem.modifiers and elem.name != 'shift']
     except:
         pass
     log(env.PRESSED_KEYS)
-    log(keys)
-    log([key.modifiers for key in keys])
+    debug_log(keys)
+    debug_log([key.modifiers for key in keys])
     if len(env.PRESSED_KEYS) > 2:
         for chunk_size in range(2, 5):
             debug_log(env.PRESSED_KEYS)
@@ -154,3 +152,4 @@ def replace_stuff(event):
 recording = keyboard.start_recording()
 keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
+#
