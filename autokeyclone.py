@@ -64,7 +64,13 @@ def find_content(shortcut: str):
                 if data.get('content'):
                     return data['content']
                 elif data.get('script'):
+                    remove_abbr(shortcut)
                     exec(open(os.path.join('scripts', data.get('script'))).read())
+
+
+def remove_abbr(abbr: str):
+    for _ in range(len(abbr)):
+        keyboard.press_and_release('backspace')
 
 
 def type_and_replace(shortcut: str):
@@ -73,8 +79,7 @@ def type_and_replace(shortcut: str):
     """
     content = find_content(shortcut)
     if content:
-        for _ in range(len(shortcut)):
-            keyboard.press_and_release('backspace')
+        remove_abbr(shortcut)
         env.PRESSED_KEYS = []
         send(content)
         return True
@@ -117,7 +122,6 @@ keyboard.hook_key('1', replace_stuff)
 
 keyboard.wait()
 
-
 """
-Greetings scripts! Thank you for contacting MoMi Support. Greetings scripts! Thank you for contacting MoMi Support. 
+
 """
