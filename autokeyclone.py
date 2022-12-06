@@ -99,7 +99,7 @@ def replace_stuff(event):
     keys = list(recorded_events_queue.queue)
 
     try:
-        [env.PRESSED_KEYS.append(elem.name) for elem in keys if elem.event_type == 'down' and not elem.modifiers and elem.name != 'shift']
+        [env.PRESSED_KEYS.append((elem.name, elem.modifiers)) for elem in keys if elem.event_type == 'down' and elem.name != 'shift']
     except:
         pass
     log(env.PRESSED_KEYS)
@@ -110,7 +110,14 @@ def replace_stuff(event):
             debug_log(env.PRESSED_KEYS)
             if len(env.PRESSED_KEYS) < chunk_size:
                 return
-            chars = env.PRESSED_KEYS[-chunk_size:]
+            print()
+            chars = []
+            for char, modif in env.PRESSED_KEYS[-chunk_size:]:
+                print(char, modif, char.isalpha(), 'shift' in modif)
+                if char.isalpha() and 'shift' in modif:
+                    chars.append(char.upper())
+                else:
+                    chars.append(char)
             combo = "".join(chars) + '!'
             log("combo:", combo)
             if type_and_replace(combo):
@@ -123,5 +130,5 @@ keyboard.hook_key('1', replace_stuff)
 keyboard.wait()
 
 """
-
+We are looking into your issue and will get back to you as soon as we can. It might take a while to get to your issue. 
 """
