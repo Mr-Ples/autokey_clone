@@ -1,54 +1,10 @@
 import datetime
 import os
-import subprocess
 import threading
 
 import keyboard
 
 import env
-
-
-def init_xclip_clipboard():
-    DEFAULT_SELECTION = 'c'
-    PRIMARY_SELECTION = 'p'
-
-    def copy_xclip(text, primary=False):
-        text = str(text)  # Converts non-str values to str.
-        selection = DEFAULT_SELECTION
-        if primary:
-            selection = PRIMARY_SELECTION
-        p = subprocess.Popen(
-            ['xclip', '-selection', selection],
-            stdin=subprocess.PIPE, close_fds=True
-        )
-        p.communicate(input=text.encode('utf-8'))
-
-    def paste_xclip():
-        keyboard.press('ctrl')
-        keyboard.press_and_release('v')
-        keyboard.release('ctrl')
-
-    return copy_xclip, paste_xclip
-
-
-def init_wlclip_clipboard():
-    def copy_wlclip(text):
-        text = str(text)  # Converts non-str values to str.
-        p = subprocess.Popen(
-            ['wl-copy'],
-            stdin=subprocess.PIPE, close_fds=True
-        )
-        p.communicate(input=text.encode('utf-8'))
-
-    def paste_wlclip():
-        keyboard.press('ctrl')
-        keyboard.press_and_release('v')
-        keyboard.release('ctrl')
-
-    return copy_wlclip, paste_wlclip
-
-
-copy, paste = init_wlclip_clipboard() if not os.getenv('XDG_CURRENT_DESKTOP') else init_xclip_clipboard()
 
 
 def write(message: str):
@@ -82,8 +38,8 @@ def write(message: str):
 
 def send(message: str):
     log(message)
-    copy(message)
-    paste()
+    env.copy(message)
+    env.control_v()
 
 
 def log(*args) -> None:
@@ -105,7 +61,10 @@ def find_content(shortcut: str):
     for data in env.KEY_MAP.values():
         for shortcuts in data.get("shortcut", []):
             if shortcut in shortcuts:
-                return data['content']
+                if data.get('content'):
+                    return data['content']
+                elif data.get('script'):
+                    exec(open(os.path.join('scripts', data.get('script'))).read())
 
 
 def type_and_replace(shortcut: str):
@@ -125,7 +84,7 @@ def replace_stuff(event):
     global recording
 
     if os.getenv('XDG_CURRENT_DESKTOP'):
-        paste()
+        env.control_v()
 
     debug_log(event.__dict__)
     if event.event_type == 'up':
@@ -160,5 +119,5 @@ keyboard.wait()
 
 
 """
-
+Greetings scripts! Thank you for contacting MoMi Support. Greetings scripts! Thank you for contacting MoMi Support. 
 """

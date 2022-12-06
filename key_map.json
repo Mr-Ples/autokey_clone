@@ -181,7 +181,8 @@
     "greetings": {
         "shortcut": [
             "gt!"
-        ]
+        ],
+        "script": "greetings.py"
     },
     "respond": {
         "shortcut": [

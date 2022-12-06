@@ -1,6 +1,9 @@
+import datetime
 import json
 import os
-import datetime
+import subprocess
+
+import keyboard
 
 HOME = os.path.abspath(".")
 print(HOME)
@@ -45,3 +48,67 @@ SPECIAL_KEYS = {
 }
 
 PRESSED_KEYS = []
+
+
+def init_xclip_clipboard():
+    DEFAULT_SELECTION = 'c'
+    PRIMARY_SELECTION = 'p'
+
+    def copy_xclip(text, primary=False):
+        text = str(text)  # Converts non-str values to str.
+        selection = DEFAULT_SELECTION
+        if primary:
+            selection = PRIMARY_SELECTION
+        p = subprocess.Popen(
+            ['xclip', '-selection', selection],
+            stdin=subprocess.PIPE, close_fds=True
+        )
+        p.communicate(input=text.encode('utf-8'))
+
+    def paste_xclip(primary=False):
+        selection = DEFAULT_SELECTION
+        if primary:
+            selection = PRIMARY_SELECTION
+        p = subprocess.Popen(
+            ['xclip', '-selection', selection, '-o'],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            close_fds=True
+        )
+        stdout, stderr = p.communicate()
+        # Intentionally ignore extraneous output on stderr when clipboard is empty
+        return stdout.decode('utf-8')
+
+    return copy_xclip, paste_xclip
+
+
+def init_wlclip_clipboard():
+    def copy_wlclip(text):
+        text = str(text)  # Converts non-str values to str.
+        p = subprocess.Popen(
+            ['wl-copy'],
+            stdin=subprocess.PIPE, close_fds=True
+        )
+        p.communicate(input=text.encode('utf-8'))
+
+    def paste_wlclip():
+        p = subprocess.Popen(
+            ['wl-paste'],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            close_fds=True
+        )
+        stdout, stderr = p.communicate()
+        # Intentionally ignore extraneous output on stderr when clipboard is empty
+        return stdout.decode('utf-8')
+
+    return copy_wlclip, paste_wlclip
+
+
+copy, paste = init_wlclip_clipboard() if not os.getenv('XDG_CURRENT_DESKTOP') else init_xclip_clipboard()
+
+
+def control_v():
+    keyboard.press('ctrl')
+    keyboard.press_and_release('v')
+    keyboard.release('ctrl')
