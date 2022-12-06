@@ -2,7 +2,6 @@ import datetime
 import os
 import subprocess
 import threading
-import time
 
 import keyboard
 
@@ -12,7 +11,6 @@ import env
 def init_xclip_clipboard():
     DEFAULT_SELECTION = 'c'
     PRIMARY_SELECTION = 'p'
-    ENCODING = 'utf-8'
 
     def copy_xclip(text, primary=False):
         text = str(text)  # Converts non-str values to str.
@@ -55,31 +53,31 @@ copy, paste = init_wlclip_clipboard() if not os.getenv('XDG_CURRENT_DESKTOP') el
 
 def write(message: str):
     keyboard.write(message)
-    # steps = []
-    #
-    # for char in message:
-    #     if char.isupper():
-    #         steps.append(f'shift+{char.lower()}')
-    #     elif not char.isalpha():
-    #         if env.SPECIAL_KEYS.get(char):
-    #             steps.append(f'shift+{env.SPECIAL_KEYS[char]}')
-    #         else:
-    #             steps.append(char)
-    #     else:
-    #         steps.append(char)
-    #
-    # for step in steps:
-    #     try:
-    #         keyboard.press(step)
-    #         keyboard.release(step)
-    #     except Exception as err:
-    #         print(err)
+    steps = []
 
-    # for char in message:
-    #     try:
-    #         keyboard._os_keyboard.type_unicode(char)
-    #     except:
-    #         pass
+    for char in message:
+        if char.isupper():
+            steps.append(f'shift+{char.lower()}')
+        elif not char.isalpha():
+            if env.SPECIAL_KEYS.get(char):
+                steps.append(f'shift+{env.SPECIAL_KEYS[char]}')
+            else:
+                steps.append(char)
+        else:
+            steps.append(char)
+
+    for step in steps:
+        try:
+            keyboard.press(step)
+            keyboard.release(step)
+        except Exception as err:
+            print(err)
+
+    for char in message:
+        try:
+            keyboard._os_keyboard.type_unicode(char)
+        except:
+            pass
 
 
 def send(message: str):
@@ -120,10 +118,14 @@ def type_and_replace(shortcut: str):
             keyboard.press_and_release('backspace')
         env.PRESSED_KEYS = []
         send(content)
+        return True
 
 
 def replace_stuff(event):
     global recording
+
+    if os.getenv('XDG_CURRENT_DESKTOP'):
+        paste()
 
     debug_log(event.__dict__)
     if event.event_type == 'up':
@@ -147,19 +149,13 @@ def replace_stuff(event):
             chars = env.PRESSED_KEYS[-chunk_size:]
             combo = "".join(chars) + '!'
             log("combo:", combo)
-            type_and_replace(combo)
-
-
-def rplc_stff(event):
-    paste()
-    replace_stuff(event)
+            if type_and_replace(combo):
+                break
 
 
 recording = keyboard.start_recording()
-if not os.getenv('XDG_CURRENT_DESKTOP'):
-    keyboard.hook_key('1', replace_stuff)
-else:
-    keyboard.hook_key('!', rplc_stff)
+keyboard.hook_key('1', replace_stuff)
+
 keyboard.wait()
 
 
